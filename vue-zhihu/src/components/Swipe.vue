@@ -14,7 +14,7 @@
 	import router from '../router'
 
 	export default {
-		name: 'Swipe',
+	  name: 'Swipe',
 	  data() {
 	    return {
 			  topStories: {}
@@ -62,6 +62,6 @@
 		z-index: 2;
 		bottom: 0;
 		padding: 30px 20px;
-    line-height: 25px;
+    	line-height: 25px;
 	}
 </style>
