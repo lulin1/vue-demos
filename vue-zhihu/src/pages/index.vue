@@ -1,12 +1,13 @@
 <template>
   <div class="index">
   	<welcome></welcome>
-	<h1>lallaalalalalalalalla</h1>
+    <swipe></swipe>
   </div>
 </template>
 
 <script>
 import welcome from '../components/Welcome'
+import swipe from '../components/Swipe'
 
 export default {
   data () {
@@ -15,7 +16,8 @@ export default {
     }
   },
   components: {
-    'welcome': welcome
+    'welcome': welcome,
+    'swipe': swipe
   }
 }
 </script>
