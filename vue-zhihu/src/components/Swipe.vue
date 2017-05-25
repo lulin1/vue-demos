@@ -47,7 +47,7 @@
 <style scoped>
 	.swipe {
 		width: 100%;
-		height: 400px;
+		height: 650px;
 		color: #fff;
 		font-size: 20px;
 	}
@@ -58,10 +58,13 @@
 		width: 100%;
 	}
 	.top-story-title {
-		position: absolute;
-		z-index: 2;
-		bottom: 0;
-		padding: 30px 20px;
-    	line-height: 25px;
+	    position: absolute;
+	    z-index: 2;
+	    bottom: 0;
+	    padding: 60px 20px;
+	    line-height: 60px;
+	    left: 0%;
+	    right: 0%;
+	    font-size: 50px;
 	}
 </style>
