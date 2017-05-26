@@ -4,7 +4,8 @@
     <swipe></swipe>
     <sideBar v-if="sideBarShow" @click="toggleSideBar"></sideBar>
     <header>
-      <p class="sideBarIcon" @click="toggleSideBar"></p>
+      <!-- <p class="sideBarIcon" @click="toggleSideBar"></p> -->
+      <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
       <p class="hotNews">今日热闻</p>
     </header>
   </div>
@@ -64,12 +65,10 @@ header {
   line-height: 32px;
   top: 0px;
 }
-.sideBarIcon {
+.icon-pos {
   position: fixed;
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  left: 20px;
+  left: 40px;
+  top: 40px;
 }
 .hotNews {
   position: absolute;
