@@ -8,6 +8,7 @@
       <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
       <p class="hotNews">今日热闻</p>
     </header>
+    <newsList ref="newsList"></newsList>
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import welcome from '../components/Welcome'
 import swipe from '../components/Swipe'
 import sideBar from '../components/SideBar'
+import newsList from '../components/NewsList'
 export default {
   data () {
     return {
@@ -25,7 +27,8 @@ export default {
   components: {
     'welcome': welcome,
     'swipe': swipe,
-    'sideBar': sideBar
+    'sideBar': sideBar,
+    'newsList': newsList
   },
   methods: {
     toggleSideBar: function() {
