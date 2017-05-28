@@ -1,6 +1,5 @@
-# vue-music
 
-> A Vue.js project
+>使用Vue-cli的空项目。
 
 ## Build Setup
 
