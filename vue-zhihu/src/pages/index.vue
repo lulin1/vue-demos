@@ -1,14 +1,15 @@
 <template>
   <div class="index">
   	<welcome></welcome>
-    <swipe></swipe>
     <sideBar v-if="sideBarShow" @click="toggleSideBar"></sideBar>
-    <header>
-      <!-- <p class="sideBarIcon" @click="toggleSideBar"></p> -->
-      <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
-      <p class="hotNews">今日热闻</p>
-    </header>
-    <newsList ref="newsList"></newsList>
+    <mt-loadmore :top-method="loadTop" :topDistance="40" ref="loadmore">
+      <header>
+        <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
+        <p class="hotNews">今日热闻</p>
+      </header>
+      <swipe></swipe>
+      <newsList ref="newsList"></newsList>
+    </mt-loadmore>
   </div>
 </template>
 
@@ -33,6 +34,10 @@ export default {
   methods: {
     toggleSideBar: function() {
       this.sideBarShow = !this.sideBarShow;
+    },
+    loadTop() {
+      this.$refs.newsList.$emit('refresh');
+      this.$refs.loadmore.onTopLoaded();
     }
   }
 }

@@ -6,5 +6,8 @@ export default {
 	},
 	changeLoadState: ({ commit }) => {
 		commit(types.CHANGE_LOAD_STATE);
+	},
+	refreshNews: ({ commit }) => {
+		commit(types.REFRESH_NEWS);
 	}
 }
