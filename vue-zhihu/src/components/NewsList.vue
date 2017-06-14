@@ -4,7 +4,8 @@
   infinite-scroll-distance="40" infinite-scroll-immediate-check=false>
       <li class="list-item" v-for="story in this.$store.state.stories" >
           <span class="story-title">{{story.title}}</span>
-          <img class="story-img" v-bind:src="attachImageUrl(story.images[0])" :alt="story.title" />
+          <!-- <img class="story-img" v-bind:src="attachImageUrl(story.images[0])" :alt="story.title" /> -->
+          <img class="story-img" v-lazy="attachImageUrl(story.images[0])" :alt="story.title" />
       </li>
     </ul>
   </div>
