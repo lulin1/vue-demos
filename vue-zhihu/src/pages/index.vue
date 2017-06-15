@@ -71,12 +71,11 @@ header {
   font-size: 22px;
   color: #fff;
   line-height: 32px;
-  top: 0px;
 }
 .icon-pos {
   position: fixed;
   left: 40px;
-  top: 40px;
+  top: 70px;
 }
 .hotNews {
   position: absolute;

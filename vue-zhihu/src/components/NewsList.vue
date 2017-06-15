@@ -2,7 +2,7 @@
   <div class="news-list">
     <ul class="list" ref="NewsList" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading"
   infinite-scroll-distance="40" infinite-scroll-immediate-check=false>
-      <li class="list-item" v-for="story in this.$store.state.stories" >
+      <li class="list-item" v-for="story in this.$store.state.stories" @click="goto(story.id)">
           <span class="story-title">{{story.title}}</span>
           <!-- <img class="story-img" v-bind:src="attachImageUrl(story.images[0])" :alt="story.title" /> -->
           <img class="story-img" v-lazy="attachImageUrl(story.images[0])" :alt="story.title" />
@@ -53,6 +53,10 @@ export default {
       .catch(error => {
         console.log(error);
       });
+    },
+
+    goto: function(id) {
+      router.push({ name: 'newsDetail',params:{ id : id } });
     },
 
     // 修改图片链接

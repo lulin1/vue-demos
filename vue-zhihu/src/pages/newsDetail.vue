@@ -14,7 +14,7 @@ import axios from 'axios';
 import router from '../router';
 
 export default {
-  name: 'Welcome',
+  name: 'newsDetail',
   data () {
     return {
       data: {}
@@ -71,19 +71,49 @@ export default {
   overflow-y: hidden;
 }
 .top-wrapper .top-img {
-    width: 100%;
-    position: relative;
-    bottom: 200px;
-  }
+  width: 100%;
+  position: relative;
+  bottom: 200px;
+}
 .top-wrapper .top-title {
-      position: absolute;
-      top: 300px;
-      font-size: 50px;
-      font-weight: bold;
-      color: #fff;
-      text-align: left;
-      left: 3%;
-      right: 3%;
-  }
+  position: absolute;
+  top: 240px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-align: left;
+  left: 3%;
+  right: 3%;
+}
+.top-wrapper .top-img-source{
+  position: absolute;
+  font-size: 38px;
+  font-weight: bold;
+  color: darkgrey;
+  top: 390px;
+  right: 0px;
+}
 
+.news-body {
+  margin: 30px;
+  text-align: left;
+  text-indent: 10%;
+  line-height: 80px;
+  color: dimgrey;
+}
+
+/*.news-body .view-more {
+  text-align: center;
+  margin-bottom: 30px;
+  background: gainsboro;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+}
+
+.news-body a {
+  font-size: 40px;
+  text-decoration: none;
+  color: darkgray;
+}*/
 </style>
