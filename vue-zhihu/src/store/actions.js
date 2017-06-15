@@ -9,5 +9,11 @@ export default {
 	},
 	refreshNews: ({ commit }) => {
 		commit(types.REFRESH_NEWS);
+	},
+	changeNewsType: ({ commit}, type) => {
+		commit(types.CHANGE_NEWS_TYPE, type);
+	},
+	changeCurrentNewsId: ({ commit }, id) => {
+		commit(types.CHANGE_CURRENT_NEWS_ID, id);
 	}
 }

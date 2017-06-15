@@ -37,7 +37,7 @@
 				}
 			},
 			goto: function(id) {
-				router.push({ name: 'newsDetail',params: { id: id } })
+				router.push({ name: 'newsDetail',params: { id: id } });
 			}
 		}
 	}
@@ -63,8 +63,9 @@
 	    bottom: 0;
 	    padding: 60px 20px;
 	    line-height: 60px;
-	    left: 0%;
-	    right: 0%;
+	    left: 2%;
+	    right: 2%;
 	    font-size: 50px;
+	    text-align: left;
 	}
 </style>
