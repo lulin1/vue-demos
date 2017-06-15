@@ -64,15 +64,26 @@ export default {
   padding-bottom: 100px;
 }
 
-.top-img {
+.top-wrapper {
   width: 100%;
+  height: 500px;
+  position: relative;
+  overflow-y: hidden;
 }
+.top-wrapper .top-img {
+    width: 100%;
+    position: relative;
+    bottom: 200px;
+  }
+.top-wrapper .top-title {
+      position: absolute;
+      top: 300px;
+      font-size: 50px;
+      font-weight: bold;
+      color: #fff;
+      text-align: left;
+      left: 3%;
+      right: 3%;
+  }
 
-.top-title {
-    position: absolute;
-    top: 300px;
-    font-size: 40px;
-    left: 5%;
-    right: 5%;
-}
 </style>
