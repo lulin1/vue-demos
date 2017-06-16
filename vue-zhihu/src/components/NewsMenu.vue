@@ -6,16 +6,16 @@
     		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
     	</li>
     	<li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
+    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe6a6;</i>
     	</li>
     	<li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
+    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe602;</i>
     	</li>
         <li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
+    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe66d;</i>
     	</li>
         <li class="menu-item" @click="goBack">
-            <i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
+            <i class="iconfont icon-pos" @click="toggleSideBar">&#xe80c;</i>
         </li>
     </u>
   </div>
@@ -54,7 +54,7 @@ export default {
 .menu-item {
     float: left;
     margin-left: 50px;
-    margin-right: 85px;
+    margin-right: 70px;
 }
 .icon-pos {
 	display: inline-block;
