@@ -5,6 +5,7 @@
     <mt-loadmore :top-method="loadTop" :topDistance="40" ref="loadmore">
       <header>
         <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
+        <!-- <i class="iconfont icon-pos" @click="toggleSideBar">&#xe6a6;</i> -->
         <p class="hotNews">今日热闻</p>
       </header>
       <swipe></swipe>
@@ -71,11 +72,12 @@ header {
   font-size: 22px;
   color: #fff;
   line-height: 32px;
+  top: 0px;
 }
 .icon-pos {
   position: fixed;
   left: 40px;
-  top: 70px;
+  top: 80px;
 }
 .hotNews {
   position: absolute;
@@ -83,7 +85,7 @@ header {
   width: 150px;
   height: 100%;
   left: 42%;
-  top: 0;
+  top: 50px;
 }
 
 </style>

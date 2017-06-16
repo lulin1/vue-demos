@@ -6,12 +6,14 @@
       <p class="top-img-source">图片：{{data.image_source}}</p>
     </div>
     <div class="news-body" v-html="this.data.body"></div>
+    <news-menu></news-menu>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import router from '../router';
+import NewsMenu from '../components/NewsMenu';
 
 export default {
   name: 'newsDetail',
@@ -19,6 +21,9 @@ export default {
     return {
       data: {}
     }
+  },
+  components: {
+    'news-menu': NewsMenu
   },
   created () {
     this.fetchData();
