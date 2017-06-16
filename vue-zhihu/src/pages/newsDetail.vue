@@ -6,7 +6,7 @@
       <p class="top-img-source">图片：{{data.image_source}}</p>
     </div>
     <div class="news-body" v-html="this.data.body"></div>
-    <news-menu></news-menu>
+    <news-menu @reloadId="fetchData"></news-menu>
   </div>
 </template>
 
@@ -29,19 +29,19 @@ export default {
     this.fetchData();
   },
   methods: {
-
+    // 获取路由参数上的id新闻具体内容
     fetchData: function() {
       let id = this.$route.params.id;
       axios.get('api/news/' + id)
       .then(response => {
-        this.data = response.data;
         response.data.body = this.attachBodyContent(response.data.body);
+        this.data = response.data;
       })
       .catch(error => {
         console.log(error);
       });
 
-      // this.$store.dispatch('changeCurrentNewsId',id);
+      this.$store.dispatch('changeCurrentNewsId',id);
       // this.$store.dispatch('judgeCollectState');
     },
 

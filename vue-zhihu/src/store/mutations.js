@@ -21,7 +21,7 @@ export default {
     // 修改当前新闻详情页面id
 	[types.CHANGE_CURRENT_NEWS_ID] (state, id) {
 	    state.id = id;
-	    // let index = state.ids.indexOf(id);
-	    // state.nextId = state.ids[++index];
+	    let index = state.ids.indexOf(id);
+	    state.nextId = state.ids[++index];
 	}
 }

@@ -2,28 +2,51 @@
   <div class="news-menu">
   	<div class="super-line"></div>
     <u class="menu-wrapper">
-    	<li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe697;</i>
+    	<!-- <li class="menu-item" @click="goBack">
+    		<i class="iconfont icon-pos" >&#xe697;</i>
+    	</li> -->
+    	<li class="menu-item" @click="goNext">
+    		<i class="iconfont icon-pos" >&#xe6a6;</i>
     	</li>
-    	<li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe6a6;</i>
+    	<!-- <li class="menu-item" @click="thumbsUp">
+    		<i class="iconfont icon-pos" >&#xe602;</i>
     	</li>
-    	<li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe602;</i>
+        <li class="menu-item" @click="goShare">
+    		<i class="iconfont icon-pos" >&#xe66d;</i>
     	</li>
-        <li class="menu-item" @click="goBack">
-    		<i class="iconfont icon-pos" @click="toggleSideBar">&#xe66d;</i>
-    	</li>
-        <li class="menu-item" @click="goBack">
-            <i class="iconfont icon-pos" @click="toggleSideBar">&#xe80c;</i>
-        </li>
+        <li class="menu-item" @click="message">
+            <i class="iconfont icon-pos" >&#xe80c;</i>
+        </li> -->
     </u>
   </div>
 </template>
 
 <script>
+import router from '../router';
+
 export default {
-  name: 'newsMenu'
+  // name: 'newsMenu',
+  // data() {
+  //   return {
+
+  //   }
+  // },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route': 'reloadId'
+  },
+  methods: {
+    goNext :function() {
+        router.push({ name: 'newsDetail', params: { id : this.$store.state.nextId } });
+        // router.push({ name: 'newsDetail', params:{ id : this.$store.state.nextId } });
+        // alert(this.$store.state.nextId)
+    },
+    // 刷新路由属性中的id，重载页面
+    reloadId: function() {
+        this.$emit('reloadId');
+        // this.fetchStoryExtra();
+    },
+  }
 }
 </script>
 
