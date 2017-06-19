@@ -8,49 +8,69 @@
     	<li class="menu-item" @click="goNext">
     		<i class="iconfont icon-pos" >&#xe6a6;</i>
     	</li>
-    	<!-- <li class="menu-item" @click="thumbsUp">
+    	<li class="menu-item" @click="thumbsUp" :class="{ 'thumbs-up-active' : isThumbsUp }">
     		<i class="iconfont icon-pos" >&#xe602;</i>
+        <span class="thumbs-up-num">{{this.$store.state.popularity}}</span>
     	</li>
-        <li class="menu-item" @click="goShare">
+      <!-- <li class="menu-item" @click="goShare">
     		<i class="iconfont icon-pos" >&#xe66d;</i>
-    	</li>
-        <li class="menu-item" @click="message">
-            <i class="iconfont icon-pos" >&#xe80c;</i>
-        </li> -->
+    	</li> -->
+      <!-- <li class="menu-item" @click="message">
+          <i class="iconfont icon-pos" >&#xe80c;</i>
+      </li> -->
     </u>
   </div>
 </template>
 
 <script>
 import router from '../router';
+import axios from 'axios';
 
 export default {
-  // name: 'newsMenu',
-  // data() {
-  //   return {
-
-  //   }
-  // },
+  name: 'newsMenu',
+  data() {
+    return {
+      'isThumbsUp': false
+    }
+  },
+  created() {
+    this.fetchNews();
+  },
   watch: {
     // 如果路由有变化，会再次执行该方法
     '$route': 'reloadId'
   },
   methods: {
-    goBack: function(){
+    fetchNews: function() {
+      axios.get('api/story-extra/'+ this.$store.state.id)
+      .then(response => {
+        this.$store.state.popularity = response.data.popularity;
+      })
+      .catch( error => {
+        console.log(error);
+      });
+    },
+    thumbsUp: function() {
+      if (!this.isThumbsUp) {
+        this.$store.state.popularity++;
+      } else{
+        this.$store.state.popularity--;
+      }
+      this.isThumbsUp = ! this.isThumbsUp;
+    },
+    goBack: function() {
         // window.history.go(-1);
         router.push({ name: 'index'});
     },
 
     goNext: function() {
         router.push({ name: 'newsDetail', params: { id : this.$store.state.nextId } });
-        // router.push({ name: 'newsDetail', params:{ id : this.$store.state.nextId } });
-        // alert(this.$store.state.nextId)
     },
 
     // 刷新路由属性中的id，重载页面
     reloadId: function() {
         this.$emit('reloadId');
-        // this.fetchStoryExtra();
+        this.fetchNews();
     },
   }
 }
@@ -87,5 +107,12 @@ export default {
 }
 .icon-pos {
 	display: inline-block;
+}
+.thumbs-up-num {
+  font-size: 30px;
+}
+.thumbs-up-active {
+  color: cornflowerblue;
+  font-weight: bold;
 }
 </style>
