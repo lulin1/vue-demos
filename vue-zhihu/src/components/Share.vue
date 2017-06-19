@@ -2,38 +2,40 @@
   <div class="share">
 	<span class="share-title">分享这篇文章</span>
     <mt-swipe :auto="0">
-	  <mt-swipe-item>
-	  	<div class="share-content wx-friend">
-	  		<i class="iconfont " >&#xe635;</i>
-	  		<p class="share-content-txt">微信好友</p>
-	  	</div>
-	  	<div class="share-content wx-circle">
-	  		<i class="iconfont " >&#xe61f;</i>
-	  		<p class="share-content-txt">微信朋友圈</p>
-	  	</div>
-	  	<div class="share-content ">
-	  		<i class="iconfont qq" >&#xe67c;</i>
-	  		<p class="share-content-txt">QQ</p>
-	  	</div>
-	  	<div class="share-content sina-blog">
-	  		<i class="iconfont icon-pos" >&#xe606;</i>
-	  		<p class="share-content-txt">新浪微博</p>
-	  	</div>
-	  	<div class="share-content paste">
-	  		<i class="iconfont icon-pos" >&#xe661;</i>
-	  		<p class="share-content-txt">复制链接</p>
-	  	</div>
-	  	<div class="share-content youdao">
-	  		<i class="iconfont icon-pos" >&#xe69c;</i>
-	  		<p class="share-content-txt">有道云笔记</p>
-	  	</div>
-	  	<div class="share-content impression-notes">
-	  		<i class="iconfont icon-pos" >&#xe644;</i>
-	  		<p class="share-content-txt">印象笔记</p>
-	  	</div>
-	  	<div class="share-content tencent-blog">
-	  		<i class="iconfont icon-pos" >&#xe600;</i>
-	  		<p class="share-content-txt">腾讯微博</p>
+	  <mt-swipe-item >
+	  	<div class="item-box">
+	  		<div class="share-content wx-friend">
+		  		<i class="iconfont " >&#xe635;</i>
+		  		<p class="share-content-txt">微信好友</p>
+		  	</div>
+		  	<div class="share-content wx-circle">
+		  		<i class="iconfont " >&#xe61f;</i>
+		  		<p class="share-content-txt">微信朋友圈</p>
+		  	</div>
+		  	<div class="share-content ">
+		  		<i class="iconfont qq" >&#xe67c;</i>
+		  		<p class="share-content-txt">QQ</p>
+		  	</div>
+		  	<div class="share-content sina-blog">
+		  		<i class="iconfont icon-pos" >&#xe606;</i>
+		  		<p class="share-content-txt">新浪微博</p>
+		  	</div>
+		  	<div class="share-content paste">
+		  		<i class="iconfont icon-pos" >&#xe661;</i>
+		  		<p class="share-content-txt">复制链接</p>
+		  	</div>
+		  	<div class="share-content youdao">
+		  		<i class="iconfont icon-pos" >&#xe69c;</i>
+		  		<p class="share-content-txt">有道云笔记</p>
+		  	</div>
+		  	<div class="share-content impression-notes">
+		  		<i class="iconfont icon-pos" >&#xe644;</i>
+		  		<p class="share-content-txt">印象笔记</p>
+		  	</div>
+		  	<div class="share-content tencent-blog">
+		  		<i class="iconfont icon-pos" >&#xe600;</i>
+		  		<p class="share-content-txt">腾讯微博</p>
+		  	</div>
 	  	</div>
 	  </mt-swipe-item>
 	</mt-swipe>
@@ -65,8 +67,8 @@
 <style scoped>
 .share {
 	width: 100%;
-	height: 800px;
-	background-color: pink;
+	height: 100%;
+	background-color: #e9e9e9;
 }
 .share-title {
     font-size: 40px;
@@ -85,6 +87,9 @@
     height: 150px;
     line-height: 150px;
     /*margin-bottom: 20px;*/
+}
+.item-box {
+	margin-top: -45px;
 }
 .share-content-txt {
 	margin: 0;
