@@ -12,25 +12,30 @@
     		<i class="iconfont icon-pos" >&#xe602;</i>
         <span class="thumbs-up-num">{{this.$store.state.popularity}}</span>
     	</li>
-      <!-- <li class="menu-item" @click="goShare">
+      <li class="menu-item" @click="goShare">
     		<i class="iconfont icon-pos" >&#xe66d;</i>
-    	</li> -->
+    	</li>
       <!-- <li class="menu-item" @click="message">
           <i class="iconfont icon-pos" >&#xe80c;</i>
       </li> -->
     </u>
+    <mt-popup class="popup" v-model="popupVisible" position="bottom" popup-transition="popup-fade">
+      <share></share>
+    </mt-popup>
   </div>
 </template>
 
 <script>
 import router from '../router';
 import axios from 'axios';
+import Share from './Share';
 
 export default {
   name: 'newsMenu',
   data() {
     return {
-      'isThumbsUp': false
+      'isThumbsUp': false,
+      'popupVisible': false
     }
   },
   created() {
@@ -58,6 +63,9 @@ export default {
       }
       this.isThumbsUp = ! this.isThumbsUp;
     },
+    goShare: function() {
+      this.popupVisible = true;
+    },
     goBack: function() {
         // window.history.go(-1);
         router.push({ name: 'index'});
@@ -72,6 +80,9 @@ export default {
         this.$emit('reloadId');
         this.fetchNews();
     },
+  },
+  components: {
+    'share': Share
   }
 }
 </script>
@@ -114,5 +125,8 @@ export default {
 .thumbs-up-active {
   color: cornflowerblue;
   font-weight: bold;
+}
+.popup {
+  width: 100%;
 }
 </style>
