@@ -1,10 +1,9 @@
 <template>
   <div class="share">
 	<span class="share-title">分享这篇文章</span>
-    <mt-swipe :auto="0">
-	  <mt-swipe-item >
+    <mt-swipe :auto="0" >
+	  <mt-swipe-item>
 	  	<div class="item-box">
-
 	  		<div class="item-box-top">
 	  			<div class="share-content ">
 			  		<i class="iconfont icon-wx-friend" >&#xe635;</i>
@@ -41,12 +40,55 @@
 			  		<i class="iconfont icon-tencent-blog" >&#xe600;</i>
 			  		<p class="share-content-txt">腾讯微博</p>
 			  	</div>
+	  		</div>	
+	  	</div>
+	  </mt-swipe-item>
+
+	  <mt-swipe-item>
+	  	<div class="item-box">
+	  		<div class="item-box-top">
+	  			<div class="share-content ">
+			  		<i class="iconfont icon-wx-friend" >&#xe635;</i>
+			  		<p class="share-content-txt">微信好友</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-wx-circle" >&#xe61f;</i>
+			  		<p class="share-content-txt">微信朋友圈</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-qq" >&#xe67c;</i>
+			  		<p class="share-content-txt">QQ</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-sina-blog" >&#xe606;</i>
+			  		<p class="share-content-txt">新浪微博</p>
+			  	</div>
 	  		</div>
-		  	
+	  		
+	  		<div class="item-box-bottom">
+	  			<div class="share-content ">
+			  		<i class="iconfont icon-paste" >&#xe661;</i>
+			  		<p class="share-content-txt">复制链接</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-youdao" >&#xe69c;</i>
+			  		<p class="share-content-txt">有道云笔记</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-impression-notes" >&#xe644;</i>
+			  		<p class="share-content-txt">印象笔记</p>
+			  	</div>
+			  	<div class="share-content ">
+			  		<i class="iconfont icon-tencent-blog" >&#xe600;</i>
+			  		<p class="share-content-txt">腾讯微博</p>
+			  	</div>
+	  		</div>	
 	  	</div>
 	  </mt-swipe-item>
 	</mt-swipe>
-	
+	<!-- <div class="button">{{this.$store.getter.collectText}}</div> -->
+	<div class="button" @click="toggleCollect">{{this.$store.getters.collectText}}</div>
+	<div class="button" @click="cancel">取消</div>
   </div>
 </template>
 
@@ -65,7 +107,12 @@
 		
 		},
 		methods: {
-			
+			toggleCollect: function() {
+				this.$store.dispatch('toggleCollect');
+			},
+			cancel: function() {
+				this.$emit('cancel');
+			}
 		}
 	}
 </script>
@@ -86,6 +133,21 @@
 	float: left;
 	margin-top: 15%;
 	margin-left: 4%;
+}
+.mint-swipe {
+	height: 58%;
+	margin-bottom: 40px;
+}
+.button {
+    width: 85%;
+    height: 120px;
+    line-height: 120px;
+    background: #fff;
+    margin: 0 auto;
+    font-size: 40px;
+    font-weight: bold;
+    color: #949494;
+    margin-top: 45px;
 }
 .iconfont {
     font-size: 80px;

@@ -20,7 +20,7 @@
       </li> -->
     </u>
     <mt-popup class="popup" v-model="popupVisible" position="bottom" popup-transition="popup-fade">
-      <share></share>
+      <share @cancel='hideMenu'></share>
     </mt-popup>
   </div>
 </template>
@@ -65,6 +65,9 @@ export default {
     },
     goShare: function() {
       this.popupVisible = true;
+    },
+    hideMenu: function() {
+      this.popupVisible = false;
     },
     goBack: function() {
         // window.history.go(-1);
@@ -128,6 +131,6 @@ export default {
 }
 .popup {
   width: 100%;
-  height: 65%;
+  height: 60%;
 }
 </style>

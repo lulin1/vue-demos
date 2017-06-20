@@ -15,5 +15,8 @@ export default {
 	},
 	changeCurrentNewsId: ({ commit }, id) => {
 		commit(types.CHANGE_CURRENT_NEWS_ID, id);
+	},
+	toggleCollect: ({ commit }) => {
+		commit(types.TOGGLE_COLLECT);
 	}
 }

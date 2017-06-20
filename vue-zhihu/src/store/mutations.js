@@ -23,5 +23,8 @@ export default {
 	    state.id = id;
 	    let index = state.ids.indexOf(id);
 	    state.nextId = state.ids[++index];
+	},
+	[types.TOGGLE_COLLECT] (state) {
+		state.isCollect = !state.isCollect;
 	}
 }
