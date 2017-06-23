@@ -18,5 +18,8 @@ export default {
 	},
 	toggleCollect: ({ commit }) => {
 		commit(types.TOGGLE_COLLECT);
+	},
+	judgeCollectStatus: ({ commit }) => {
+		commit(types.JUDGE_COLLECT_STATUS);
 	}
 }

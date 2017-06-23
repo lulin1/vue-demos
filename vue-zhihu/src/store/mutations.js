@@ -24,7 +24,28 @@ export default {
 	    let index = state.ids.indexOf(id);
 	    state.nextId = state.ids[++index];
 	},
+	// 收藏新闻
 	[types.TOGGLE_COLLECT] (state) {
 		state.isCollect = !state.isCollect;
+		let index = state.collectIds.indexOf(state.id);
+		if (index < 0) {
+			state.collectIds.push(state.id);
+			state.stories.map((item) => {
+				if (item.id == state.id) {
+					state.collectStories.push(item);
+				}
+			})
+		} else {
+			state.collectIds.splice(index,1);
+			state.collectStories.splice(index,1);
+		}
+	},
+	// 判断当前收藏状态
+	[types.JUDGE_COLLECT_STATUS] (state) {
+		if ( state.collectIds.indexOf(state.id) < 0 ) {
+			state.isCollect = false;
+		} else {
+			state.isCollect = true;
+		}
 	}
 }

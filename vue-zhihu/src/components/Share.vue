@@ -103,8 +103,8 @@
 			  topStories: {}
 			}
 		},
-	  created() {
-		
+	    created() {
+			this.$store.dispatch('judgeCollectStatus')
 		},
 		methods: {
 			toggleCollect: function() {
