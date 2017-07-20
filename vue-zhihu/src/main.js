@@ -3,20 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import store from './store'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
 
 Vue.config.productionTip = false
 
-// 使用 MintUI
-Vue.use(MintUI)
+Vue.use(ElementUI)
+
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  store,
   template: '<App/>',
   components: { App }
 })
