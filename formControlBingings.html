@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/vue/2.1.3/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+     <input v-model.lazy="message" placeholder="edit me">
+     <p>Message is: {{ message }}</p>
+
+     <input v-model.number="age" type="number">
+     <p>Age is: {{ age }}</p>
+
+     <input v-model.trim="msg">
+     <p>Msg is: {{msg}}</p>
+</div>
+
+<script type="text/javascript">
+    
+  var app = new Vue({
+      el: '#app',
+      data: {
+          message : 'welcome !' , //message在 "change" 而不是 "input" 事件中更新,当点击屏幕或者回车的时候message会更新
+          age : '', //自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值）
+          msg: '' //自动过滤用户输入的首尾空格
+      }
+    })
+</script>
+</body>
+</html>
