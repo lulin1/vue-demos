@@ -80,6 +80,26 @@
       </transition>
     </div>
     
+    <div id="example-8">
+      <button @click="shuffle1">Shuffle</button>
+      <button @click="add">Add</button>
+      <button @click="remove">Remove</button>
+      <transition-group name="list" tag="p">
+        <span v-for="item in items1" v-bind:key="item" class="list-item">
+          {{ item }}
+        </span>
+      </transition-group>
+    </div>
+
+    <div id="example-9">
+      <button @click="shuffle2">shuffle</button>
+      <transition-group name="flip-list" tag="ul" class="shuffle">
+        <li v-for="item in items2" :key="item">
+          {{ item }}
+        </li>
+      </transition-group>
+    </div>
+
   </div>
 </template>
 
@@ -96,7 +116,10 @@ export default {
       show5: true,
       view: 'v-a',
       viewOutIn: 'v-a',
-      viewInOut: 'v-a'
+      viewInOut: 'v-a',
+      items1: [1,2,3,4,5,6,7,8,9],
+      items2: [1,2,3,4,5,6,7,8,9],
+      nextNum: 10
     }
   },
   methods: {
@@ -138,6 +161,21 @@ export default {
       } else {
         this.viewInOut = 'v-a'
       }
+    },
+    add: function() {
+      this.items1.splice(this.randomIndex(), 0, this.nextNum++);
+    },
+    remove: function() {
+      this.items1.splice(this.randomIndex(), 1);
+    },
+    randomIndex: function() {
+      return Math.floor(Math.random() * this.items1.length)
+    },
+    shuffle1: function() {
+      this.items1 = _.shuffle(this.items1);
+    },
+    shuffle2: function() {
+      this.items2 = _.shuffle(this.items2);
     }
   },
   components: {
@@ -199,9 +237,36 @@ export default {
 .component-fade-enter-active, .component-fade-leave-active {
   transition: opacity .3s ease;
 }
+
 .component-fade-enter, .component-fade-leave-to
 /* .component-fade-leave-active for below version 2.1.8 */ {
   opacity: 0;
 }
 
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-enter-active,.list-leave-active {
+  transition: all 1s;
+}
+
+.list-enter,.list-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.flip-list-move {
+  transition: transform 1s;
+}
+
+.shuffle {
+  width: 5%;
+  margin: 20px auto;
+}
+
+.list-move {
+  transition: 2s;
+}
 </style>
