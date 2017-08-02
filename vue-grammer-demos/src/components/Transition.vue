@@ -1,5 +1,7 @@
 <template>
   <div id="transition">
+    <h1>Transition Effect</h1>
+
     <div id="demo">
       <button v-on:click="show = !show">
         Toggle
