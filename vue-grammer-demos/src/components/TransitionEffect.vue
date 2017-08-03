@@ -1,5 +1,5 @@
 <template>
-  <div id="transition">
+  <div id="transition-effect">
     <h1>Transition Effect</h1>
 
     <div id="demo">

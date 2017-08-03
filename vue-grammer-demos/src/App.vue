@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <transition></transition>
+    <transitionEffect></transitionEffect>
+    <transitionStatus></transitionStatus>
   </div>
 </template>
 
 <script>
-import Transition from './components/Transition'
+import TransitionEffect from './components/TransitionEffect'
+import TransitionStatus from './components/TransitionStatus'
 
 export default {
   name: 'app',
   components: {
-    Transition
+    TransitionEffect,
+    TransitionStatus
   }
 }
 </script>
