@@ -102,6 +102,25 @@
       </transition-group>
     </div>
 
+    <div id="example-10">
+      <input type="text" name="example-10" v-model="query" />
+      <transition-group name="staggered-fade" tag="ul" v-on:before-enter="beforeEnter10" v-on:enter="enter10" v-on:leave="leave10" v-bind:css="false" class="stagger">
+        <li v-for=" (item,index) in computedList" v-bind:key="item.msg" v-bind:data-index="index" class="stagger-li">
+          {{ item.msg }}
+        </li>
+      </transition-group>
+    </div>
+
+    <div id="example-11">
+      Fade in: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration" />
+      Fade out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration" />
+      <transition :css="false" @before-enter="beforeEnter11" @enter="enter11" @leave="leave11">
+        <p v-if="show11">hello</p>
+      </transition>
+      <button v-if="stop11" v-on:click="stop11 = false; show11 = false">Start animating</button>
+      <button v-else v-on:click="stop11 = true">Stop it!</button>
+    </div>
+
   </div>
 </template>
 
@@ -121,7 +140,36 @@ export default {
       viewInOut: 'v-a',
       items1: [1,2,3,4,5,6,7,8,9],
       items2: [1,2,3,4,5,6,7,8,9],
-      nextNum: 10
+      nextNum: 10,
+      query: '',
+      list: [
+        { msg: 'lulin' },
+        { msg: 'liao' },
+        { msg: 'wangxiaoxian' },
+        { msg: 'wangna' },
+        { msg: 'liulu' },
+        { msg: 'dingchen' },
+        { msg: 'yamei' },
+        { msg: 'yangjing' },
+        { msg: 'luansheng' },
+        { msg: 'luwei' }
+      ],
+      show11: true,
+      stop11: true,
+      fadeInDuration: 1000,
+      fadeOutDuration: 1000,
+      maxFadeDuration: 1500
+    }
+  },
+  mounted: function () {
+    this.show11 = false
+  },
+  computed: {
+    computedList: function() {
+      var vm = this;
+      return this.list.filter(function(item) {
+        return item.msg.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+      })
     }
   },
   methods: {
@@ -129,9 +177,30 @@ export default {
       el.style.opacity = 0;
       el.style.transformOrigin = 'left'
     },
+    beforeEnter10: function(el) {
+      el.style.opacity = 0;
+      el.style.height = 0;
+    },
+    beforeEnter11: function(el) {
+      el.style.opacity = 0;
+    },
     enter: function(el,done) {
-      Velocity(el, { opacity: 1 ,fontSize: '1.4em' }, { duration: 300})
+      Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300})
       Velocity(el, { fontSize: '1em' }, { complete: done})
+    },
+    enter10: function(el,done) {
+      var delay = el.dataset.index * 200 ;
+      setTimeout(function() {
+        Velocity(el, { opacity: 1, height: '1.6rem' }, { complete: done });
+      }, delay)
+    },
+    enter11: function(el,done) {
+      var vm = this;
+      Velocity(el, { opacity: 1 }, { duration: this.fadeInDuration, complete: function() { 
+        done() 
+        if (!vm.stop11) { vm.show11 = false }
+        }
+      })
     },
     leave: function(el,done) {
       Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
@@ -142,6 +211,19 @@ export default {
         translateX: '100px',
         opacity: 0
       }, { complete: done })
+    },
+    leave10: function(el,done) {
+      var delay = el.dataset.index * 200;
+      setTimeout(function() {
+        Velocity(el, { opacity: 0, height: 0 }, { complete: done });
+      }, delay)
+    },
+    leave11: function(el,done) {
+      var vm = this;
+      Velocity(el, { opacity: 0 }, { duration: this.fadeOutDuration, complete: function() {
+        done()
+        vm.show11 = true;
+      }})
     },
     toggle: function() {
       if (this.view == 'v-a') {
@@ -270,5 +352,14 @@ export default {
 
 .list-move {
   transition: 2s;
+}
+
+.stagger {
+  width: 10%;
+  margin: 20px auto;
+}
+
+.stagger-li {
+  margin: 10px;
 }
 </style>
