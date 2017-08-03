@@ -15,6 +15,10 @@
 			<p>{{ tweenedCSSColor }}</p>
 		</div>
 
+		<div id="example-3">
+			<h3>Color picker with jscolor.js</h3>
+			<input class="jscolor">
+		</div>
 	</div>
 </template>
 
