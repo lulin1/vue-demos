@@ -2,6 +2,11 @@
 	<div id="transition-status">
 		<h1 title="Click Me !" @click="showStatus" :class="status ? 'styleStatus' : ''">Transition Status</h1>
 
+		<div class="skin-box">
+			<span class="changeSkin">更换皮肤</span>
+			<input class="jscolor" id="changeColor" @change="updateSkinColor()" value="F0FFEB">
+		</div>
+
 		<div id="transition-status-box" v-if="status">
 			<div id="example-1">
 				<input type="number" v-model="number" step="20">
@@ -14,11 +19,6 @@
 				<p>Preview:</p>
 				<span :style="{ backgroundColor: tweenedCSSColor}" class="example-2-css"></span>
 				<p>{{ tweenedCSSColor }}</p>
-			</div>
-
-			<div id="example-3">
-				<h3>Color picker with jscolor.js</h3>
-				<input class="jscolor">
 			</div>
 		</div>
 		
@@ -45,6 +45,9 @@ export default {
 	},
 	created: function() {
 		this.tweenedColor = Object.assign({}, this.color);
+	},
+	mounted: function() {
+		this.updateSkinColor();
 	},
 	watch: {
 		number: function(newValue, oldValue) {
@@ -96,6 +99,10 @@ export default {
 		updateColor: function() {
 			this.color = new Color(this.colorQuery).toRGB();
 			this.colorQuery = ''
+		},
+		updateSkinColor: function() {
+			var value = document.getElementById('changeColor').value;
+			document.body.style.backgroundColor = '#' + value;
 		}
 	}
 }
@@ -104,21 +111,34 @@ export default {
 <style scoped>
 
 h1:hover {
-  font-style: italic;
-  font-size: 40px;
-  color: grey;
+    font-style: italic;
+    font-size: 40px;
+    color: grey;
+}
+
+.skin-box {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.changeSkin {
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: oblique;
 }
 
 .styleStatus {
-  color: cadetblue;
-  background: black;
-  width: 50%;
-  height: 100%;
-  margin: 25px auto;
-  padding: 10px;
-  font-size: 40px;
-  border-radius: 50%;
-  box-shadow: 10px 10px 5px darkslategrey;
+    color: cadetblue;
+    background: black;
+    width: 50%;
+    height: 100%;
+    margin: 25px auto;
+    padding: 10px;
+    font-size: 40px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 5px darkslategrey;
 }
 
 .example-2-css {

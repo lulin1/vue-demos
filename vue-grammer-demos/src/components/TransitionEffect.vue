@@ -162,9 +162,6 @@ export default {
       maxFadeDuration: 1500
     }
   },
-  mounted: function () {
-    this.show11 = false
-  },
   computed: {
     computedList: function() {
       var vm = this;
