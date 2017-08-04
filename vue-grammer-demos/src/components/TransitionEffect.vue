@@ -1,126 +1,126 @@
 <template>
-  <div id="transition-effect">
-    <h1>Transition Effect</h1>
+  <div id="transition-effect" >
+    <h1 title="Click Me !" @click="showEffect" :class="effect ? 'styleEffect' : ''">Transition Effect</h1>
+    <div id="transition-effect-box" v-if="effect">
+      <div id="demo">
+        <button v-on:click="show = !show">
+          Toggle
+        </button>
+        <transition name="fade">
+          <p v-if="show">hello</p>
+        </transition>
+      </div>
 
-    <div id="demo">
-      <button v-on:click="show = !show">
-        Toggle
-      </button>
-      <transition name="fade">
-        <p v-if="show">hello</p>
-      </transition>
-    </div>
+      <div id="example-1">
+        <button v-on:click="show1 = !show1">
+          Toggle render
+        </button>
+        <transition name="slide-fade">
+          <p v-if="show1">hello</p>
+        </transition>
+      </div>
 
-    <div id="example-1">
-      <button v-on:click="show1 = !show1">
-        Toggle render
-      </button>
-      <transition name="slide-fade">
-        <p v-if="show1">hello</p>
-      </transition>
-    </div>
+      <div id="example-2">
+        <button @click="show2 = !show2">
+          Toggle show
+        </button>
+        <transition name="bounce">
+          <p v-if="show2">Look at me!</p>
+        </transition>
+      </div>
 
-    <div id="example-2">
-      <button @click="show2 = !show2">
-        Toggle show
-      </button>
-      <transition name="bounce">
-        <p v-if="show2">Look at me!</p>
-      </transition>
-    </div>
+      <div id="example-3">
+        <button @click="show3 = !show3">
+          Toggle render
+        </button>
+        <transition
+          name="custom-classes-transition"
+          enter-active-class="animated tada"
+          leave-active-class="animated bounceOutRight"
+        >
+          <p v-if="show3">Animate.css</p>
+        </transition>
+      </div>
 
-    <div id="example-3">
-      <button @click="show3 = !show3">
-        Toggle render
-      </button>
-      <transition
-        name="custom-classes-transition"
-        enter-active-class="animated tada"
-        leave-active-class="animated bounceOutRight"
-      >
-        <p v-if="show3">Animate.css</p>
-      </transition>
-    </div>
+      <div id="example-4">
+        <button @click="show4 = !show4">
+          Toggle
+        </button>
+        <transition
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:leave="leave"
+          v-bind:css="false"
+        >
+          <p v-if="show4">
+            Demo
+          </p>
+        </transition>
+      </div>
 
-    <div id="example-4">
-      <button @click="show4 = !show4">
-        Toggle
-      </button>
-      <transition
-        v-on:before-enter="beforeEnter"
-        v-on:enter="enter"
-        v-on:leave="leave"
-        v-bind:css="false"
-      >
-        <p v-if="show4">
-          Demo
-        </p>
-      </transition>
-    </div>
+      <div id="example-5">
+        <input type="radio" name="radio" @click="toggleOutIn"/>
+        <input type="radio" name="radio" @click="toggleOutIn"/>
+        <transition name="component-fade" mode="out-in">
+          <component :is="viewOutIn"></component>
+        </transition>
+      </div>
 
-    <div id="example-5">
-      <input type="radio" name="radio" @click="toggleOutIn"/>
-      <input type="radio" name="radio" @click="toggleOutIn"/>
-      <transition name="component-fade" mode="out-in">
-        <component :is="viewOutIn"></component>
-      </transition>
-    </div>
+      <div id="example-6">
+        <input type="radio" name="radio" @click="toggle"/>
+        <input type="radio" name="radio" @click="toggle"/>
+        <transition name="component-fade">
+          <component :is="view"></component>
+        </transition>
+      </div>
 
-    <div id="example-6">
-      <input type="radio" name="radio" @click="toggle"/>
-      <input type="radio" name="radio" @click="toggle"/>
-      <transition name="component-fade">
-        <component :is="view"></component>
-      </transition>
-    </div>
+      <div id="example-7">
+        <input type="radio" name="radio" @click="toggleInOut"/>
+        <input type="radio" name="radio" @click="toggleInOut"/>
+        <transition name="component-fade" mode="in-out">
+          <component :is="viewInOut"></component>
+        </transition>
+      </div>
+      
+      <div id="example-8">
+        <button @click="shuffle1">Shuffle</button>
+        <button @click="add">Add</button>
+        <button @click="remove">Remove</button>
+        <transition-group name="list" tag="p">
+          <span v-for="item in items1" v-bind:key="item" class="list-item">
+            {{ item }}
+          </span>
+        </transition-group>
+      </div>
 
-    <div id="example-7">
-      <input type="radio" name="radio" @click="toggleInOut"/>
-      <input type="radio" name="radio" @click="toggleInOut"/>
-      <transition name="component-fade" mode="in-out">
-        <component :is="viewInOut"></component>
-      </transition>
-    </div>
-    
-    <div id="example-8">
-      <button @click="shuffle1">Shuffle</button>
-      <button @click="add">Add</button>
-      <button @click="remove">Remove</button>
-      <transition-group name="list" tag="p">
-        <span v-for="item in items1" v-bind:key="item" class="list-item">
-          {{ item }}
-        </span>
-      </transition-group>
-    </div>
+      <div id="example-9">
+        <button @click="shuffle2">shuffle</button>
+        <transition-group name="flip-list" tag="ul" class="shuffle">
+          <li v-for="item in items2" :key="item">
+            {{ item }}
+          </li>
+        </transition-group>
+      </div>
 
-    <div id="example-9">
-      <button @click="shuffle2">shuffle</button>
-      <transition-group name="flip-list" tag="ul" class="shuffle">
-        <li v-for="item in items2" :key="item">
-          {{ item }}
-        </li>
-      </transition-group>
-    </div>
+      <div id="example-10">
+        <input type="text" name="example-10" v-model="query" />
+        <transition-group name="staggered-fade" tag="ul" v-on:before-enter="beforeEnter10" v-on:enter="enter10" v-on:leave="leave10" v-bind:css="false" class="stagger">
+          <li v-for=" (item,index) in computedList" v-bind:key="item.msg" v-bind:data-index="index" class="stagger-li">
+            {{ item.msg }}
+          </li>
+        </transition-group>
+      </div>
 
-    <div id="example-10">
-      <input type="text" name="example-10" v-model="query" />
-      <transition-group name="staggered-fade" tag="ul" v-on:before-enter="beforeEnter10" v-on:enter="enter10" v-on:leave="leave10" v-bind:css="false" class="stagger">
-        <li v-for=" (item,index) in computedList" v-bind:key="item.msg" v-bind:data-index="index" class="stagger-li">
-          {{ item.msg }}
-        </li>
-      </transition-group>
+      <div id="example-11">
+        Fade in: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration" />
+        Fade out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration" />
+        <transition :css="false" @before-enter="beforeEnter11" @enter="enter11" @leave="leave11">
+          <p v-if="show11">hello</p>
+        </transition>
+        <button v-if="stop11" v-on:click="stop11 = false; show11 = false">Start animating</button>
+        <button v-else v-on:click="stop11 = true">Stop it!</button>
+      </div>
     </div>
-
-    <div id="example-11">
-      Fade in: <input type="range" v-model="fadeInDuration" min="0" :max="maxFadeDuration" />
-      Fade out: <input type="range" v-model="fadeOutDuration" min="0" :max="maxFadeDuration" />
-      <transition :css="false" @before-enter="beforeEnter11" @enter="enter11" @leave="leave11">
-        <p v-if="show11">hello</p>
-      </transition>
-      <button v-if="stop11" v-on:click="stop11 = false; show11 = false">Start animating</button>
-      <button v-else v-on:click="stop11 = true">Stop it!</button>
-    </div>
-
   </div>
 </template>
 
@@ -129,6 +129,7 @@ export default {
   name: 'hello',
   data () {
     return {
+      effect: false,
       show: true,
       show1: true,
       show2: true,
@@ -173,6 +174,9 @@ export default {
     }
   },
   methods: {
+    showEffect: function() {
+      this.effect = !this.effect;
+    },
     beforeEnter: function(el) {
       el.style.opacity = 0;
       el.style.transformOrigin = 'left'
@@ -276,6 +280,24 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+h1:hover {
+  font-style: italic;
+  font-size: 40px;
+  color: grey;
+}
+
+.styleEffect {
+  color: cadetblue;
+  background: black;
+  width: 50%;
+  height: 100%;
+  margin: 25px auto;
+  padding: 10px;
+  font-size: 40px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 5px darkslategrey;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity .9s;
 }
@@ -362,4 +384,5 @@ export default {
 .stagger-li {
   margin: 10px;
 }
+
 </style>
