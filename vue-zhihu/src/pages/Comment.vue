@@ -4,9 +4,9 @@
     <long-comment></long-comment>
     <short-comment></short-comment>
     <div class="footer">
-      <i></i>
-      <i></i>
-      <span class="writeComment">写评论</span>
+      <i class="iconfont icon-pos foot-1" @click="goBack">&#xe697;</i>
+      <i class="iconfont icon-pos foot-2" >&#xe66e;</i>
+      <span class="write-comment">写评论</span>
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@
 import welcome from '../components/Welcome';
 import LongComment from '../components/LongComment';
 import ShortComment from '../components/ShortComment';
+import router from '../router'
 
 export default {
   data () {
@@ -28,7 +29,10 @@ export default {
     'short-comment': ShortComment
   },
   methods: {
-    
+    goBack: function() {
+      // router.push({ name: 'writeComment' , params: { id: this.$store.state.id } })
+      router.go(-1)
+    }
   }
 }
 </script>
@@ -47,5 +51,31 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  color: #fff;
+  font-size: 40px;
+  background-color: #3c3c3c;
+}
+
+.foot-1 {
+  position: absolute;
+  left: 20px;
+  color: #999;
+}
+
+.foot-1:hover {
+  font-weight: bold;
+}
+
+.foot-2 {
+  font-size: 50px;
 }
 </style>

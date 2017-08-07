@@ -17,6 +17,7 @@
     	</li>
       <li class="menu-item" @click="showComment">
           <i class="iconfont icon-pos" >&#xe80c;</i>
+          <span class="comment-num">{{this.$store.state.comments}}</span>
       </li>
     </u>
     <mt-popup class="popup" v-model="popupVisible" position="bottom" popup-transition="popup-fade">
@@ -121,7 +122,7 @@ export default {
 }
 .menu-item {
     float: left;
-    margin-left: 40px;
+    margin-left: 35px;
     margin-right: 70px;
 }
 .icon-pos {
@@ -138,4 +139,10 @@ export default {
   width: 100%;
   height: 60%;
 }
+
+.comment-num {
+  font-size: 30px;
+  margin-left: -15px;
+}
+
 </style>

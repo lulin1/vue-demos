@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import index from '@/pages/index'
 import newsDetail from '../pages/newsDetail'
 import comment from '../pages/Comment'
+import writeComment from '../pages/writeComment'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/comment/:id',
       name: 'comment',
       component: comment
+    },
+    {
+      path: '/writeComment',
+      name: 'writeComment',
+      component: writeComment
     }
   ]
 })
