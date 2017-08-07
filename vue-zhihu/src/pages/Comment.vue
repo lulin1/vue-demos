@@ -46,7 +46,7 @@ export default {
   height: 90px;
   line-height: 90px;
   background: #1ba3ea;
-  font-size: 40px;
+  font-size: 45px;
   font-weight: bold;
   color: #fff;
   letter-spacing: 5px;
