@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Hello from '@/components/Hello'
-// import swipe from '@/components/Swipe'
 import index from '@/pages/index'
 import newsDetail from '../pages/newsDetail'
+import comment from '../pages/Comment'
 
 Vue.use(Router)
 
@@ -18,6 +17,11 @@ export default new Router({
       path: '/newsDetail/:id',
       name: 'newsDetail',
       component: newsDetail
+    },
+    {
+      path: '/comment/:id',
+      name: 'comment',
+      component: comment
     }
   ]
 })
