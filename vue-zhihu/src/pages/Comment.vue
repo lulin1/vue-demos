@@ -6,7 +6,7 @@
     <div class="footer">
       <i class="iconfont icon-pos foot-1" @click="goBack">&#xe697;</i>
       <i class="iconfont icon-pos foot-2" >&#xe66e;</i>
-      <span class="write-comment">写评论</span>
+      <span class="write-comment" @click="writeComment">写评论</span>
     </div>
   </div>
 </template>
@@ -30,8 +30,10 @@ export default {
   },
   methods: {
     goBack: function() {
-      // router.push({ name: 'writeComment' , params: { id: this.$store.state.id } })
       router.go(-1)
+    },
+    writeComment: function() {
+      router.push({ name: 'writeComment' , params: { id: this.$store.state.id } })
     }
   }
 }
