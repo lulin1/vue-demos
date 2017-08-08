@@ -51,8 +51,8 @@ export default {
       axios.get('api/story-extra/'+ this.$store.state.id)
       .then(response => {
         this.$store.state.popularity = response.data.popularity;
-        this.$store.state.long_comments = response.data.long_comments;
-        this.$store.state.short_comments = response.data.short_comments;
+        this.$store.state.longComment = response.data.long_comments;
+        this.$store.state.shortComment = response.data.short_comments;
         this.$store.state.comments = response.data.comments;
       })
       .catch( error => {
@@ -122,7 +122,7 @@ export default {
 }
 .menu-item {
     float: left;
-    margin-left: 35px;
+    margin-left: 30px;
     margin-right: 70px;
 }
 .icon-pos {
