@@ -3,6 +3,7 @@
     <img src="./assets/logo.png">
     <transitionEffect></transitionEffect>
     <transitionStatus></transitionStatus>
+    <vue-particles color="#dedede"></vue-particles>
   </div>
 </template>
 
