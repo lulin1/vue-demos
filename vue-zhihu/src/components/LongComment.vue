@@ -3,7 +3,6 @@
     <div class="title">
       {{this.$store.state.longComment}} 条长评
     </div>
-    <div class="super-line"></div>
     <ul class="comment-list">
       <li v-for="comment in this.comments" class="comment-item">
         <img class="comment-avatar" v-lazy="attachImageUrl(comment.avatar)">
@@ -84,17 +83,7 @@ export default {
   font-size:40px;
   text-align: left;
   font-weight: bold;
-}
-
-.super-line {
-  margin: 10px auto;
-  overflow: hidden;
-  height: 1px;
-  border-top: 1px solid #eee;
-  transform-origin: 0 0;
-  -webkit-transform: scaleY(2); 
-  transform: scaleY(2);
-
+  border-bottom: 2px solid #eee;
 }
 
 .comment-list {
