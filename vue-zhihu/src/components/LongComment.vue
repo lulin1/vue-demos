@@ -25,6 +25,10 @@
             <span class="reply-content">{{comment.reply_to.content}}</span>
           </div>
 
+          <div class="comment-time">
+            {{formatTime(comment.time)}}
+          </div>
+
         </div>
       </li>
     </ul>
@@ -32,8 +36,8 @@
 </template>
 
 <script>
-import welcome from '../components/Welcome';
 import axios from 'axios';
+import moment from 'moment';
 
 export default {
   data () {
@@ -61,6 +65,9 @@ export default {
       if (srcUrl !== undefined) {
         return srcUrl.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p');
       }
+    },
+    formatTime: function(time) {
+      return moment(time).format('MM-DD HH:mm')
     }
   }
 }
@@ -154,5 +161,12 @@ export default {
 
 .reply-content {
   color: #929292;
+}
+
+.comment-time {
+  text-align: left;
+  font-size: 20px;
+  margin: 20px 45px;
+  color: #ccc;
 }
 </style>
