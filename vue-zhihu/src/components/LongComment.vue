@@ -12,12 +12,17 @@
 
           <div class="comment-title">
             <span class="comment-author">{{comment.author}}</span>
-            <i class="iconfont icon-pos" >&#xe6a6;</i>
+            <i class="iconfont icon-pos" >&#xe602;</i>
             <span class="like-num">{{comment.likes}}</span>
           </div>
 
           <div class="comment-txt">
             {{comment.content}}
+          </div>
+
+          <div class="reply" v-if="comment.reply_to">
+            <span class="reply-name">//{{comment.reply_to.author}}:</span>
+            <span class="reply-content">{{comment.reply_to.content}}</span>
           </div>
 
         </div>
@@ -101,6 +106,7 @@ export default {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background-color: antiquewhite;
 }
 
 .comment-title {
@@ -118,5 +124,35 @@ export default {
   color: #666;
   text-align: left;
   padding: 0 30px;
+}
+
+.icon-pos {
+  font-size: 45px;
+  margin-right: -10px;
+  color: #b4b4b4;
+}
+
+.like-num {
+  font-size: 30px;
+  color: #b4b4b4;
+}
+
+.comment-txt {
+  margin: 15px;
+}
+
+.reply {
+  margin: 15px;
+  padding: 0 30px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.reply-name {
+  color: #000;
+}
+
+.reply-content {
+  color: #929292;
 }
 </style>
