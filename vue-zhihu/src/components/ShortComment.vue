@@ -2,11 +2,11 @@
   <div class="short-comment">
     <div class="title">
       {{this.$store.state.shortComment}} 条短评
-      <i class="iconfont icon-pos open" @click="openCommentList">&#xe605;</i>
-      <i class="iconfont icon-pos close" @click="closeCommentList">&#xe641;</i>
+      <i class="iconfont icon-pos open" v-if="!this.show" @click="toggleCommentList">&#xe605;</i>
+      <i class="iconfont icon-pos close" v-if="this.show" @click="toggleCommentList">&#xe641;</i>
     </div>
 
-    <ul class="comment-list">
+    <ul class="comment-list" v-if="show">
       <li v-for="comment in this.shortComments" class="comment-item">
         <img v-lazy="attachImgUrl(comment.avatar)" class="comment-avatar">
 
@@ -44,7 +44,8 @@ import moment from 'moment'
 export default {
   data () {
     return {
-       shortComments: []
+       shortComments: [],
+       show: false
      }
   },
   components: {
@@ -58,7 +59,6 @@ export default {
       axios.get('api/story/' + this.$store.state.id + '/short-comments')
         .then(response => {
           this.shortComments = response.data.comments;
-          alert(JSON.stringify(this.shortComments));
         })
         .catch(error => {
           console.log(error)
@@ -72,11 +72,8 @@ export default {
     formatTime: function (time) {
       return moment(time).format('MM-DD HH:mm')
     },
-    openCommentList: function () {
-
-    },
-    closeCommentList: function() {
-
+    toggleCommentList: function () {
+      this.show = !this.show;
     }
   }
 }
@@ -84,9 +81,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.short-comment {
+  padding-bottom: 100px;
+}
+
 .comment-list {
   padding-left: 0;
-  padding-bottom: 100px;
 }
 
 .comment-item {
@@ -115,7 +115,6 @@ export default {
 }
 
 .close {
-  display: none;
   float: right;
 }
 
