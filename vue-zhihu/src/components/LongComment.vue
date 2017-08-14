@@ -51,7 +51,7 @@ export default {
     this.fetchData();
   },
   methods: {
-    fetchData: function() {
+    fetchData: function () {
       axios.get('api/story/' + this.$store.state.id + '/long-comments')
         .then(response => {
           this.comments = response.data.comments;
@@ -60,12 +60,12 @@ export default {
           console.log(error);
         })
     },
-    attachImageUrl: function(srcUrl) {
+    attachImageUrl: function (srcUrl) {
       if (srcUrl !== undefined) {
         return srcUrl.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p');
       }
     },
-    formatTime: function(time) {
+    formatTime: function (time) {
       return moment(time).format('MM-DD HH:mm')
     }
   }

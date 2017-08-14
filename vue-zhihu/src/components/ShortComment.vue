@@ -2,8 +2,8 @@
   <div class="short-comment">
     <div class="title">
       {{this.$store.state.shortComment}} 条短评
-      <i class="iconfont icon-pos open" >&#xe605;</i>
-      <i class="iconfont icon-pos close" >&#xe641;</i>
+      <i class="iconfont icon-pos open" @click="openCommentList">&#xe605;</i>
+      <i class="iconfont icon-pos close" @click="closeCommentList">&#xe641;</i>
     </div>
 
     <ul class="comment-list">
@@ -59,13 +59,19 @@ export default {
           console.log(error)
         })
     },
-    attachImgUrl (srcUrl) {
+    attachImgUrl: function (srcUrl) {
       if (srcUrl !== undefined) {
         return srcUrl.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p');
       }
     },
-    formatTime (time) {
+    formatTime: function (time) {
       return moment(time).format('MM-DD HH:mm')
+    },
+    openCommentList: function () {
+
+    },
+    closeCommentList: function() {
+
     }
   }
 }
