@@ -22,6 +22,11 @@
             {{comment.content}}
           </div>
 
+          <div class="comment-reply" v-if="comment.reply_to">
+            <span class="reply-author">//{{comment.reply_to.author}}:</span>
+            <span class="reply-content">{{comment.reply_to.content}}</span>
+          </div>
+
           <div class="comment-time">
             {{formatTime(comment.time)}}
           </div>
@@ -152,5 +157,18 @@ export default {
   color: #ccc;
   font-size: 20px;
   padding: 10px 30px;
+}
+
+.comment-reply {
+  padding: 0 30px;
+  font-size: 20px;
+}
+
+.reply-author {
+  color: #000;
+}
+
+.reply-content {
+  color: #929292;
 }
 </style>
