@@ -47,7 +47,7 @@ export default {
   components: {
 
   },
-  created() {
+  created () {
     this.fetchData();
   },
   methods: {
