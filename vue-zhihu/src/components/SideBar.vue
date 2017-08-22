@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" ref="contentWrapper">
       <ul class="content-list">
         <li class="content-item" v-for="item in data">
           <i class="iconfont icon-pos" v-if="item.id === -1">&#xe66f;</i>
@@ -51,12 +51,14 @@
 <script>
 import axios from "axios";
 import router from "../router";
+import BScroll from "better-scroll";
 
 export default {
   name: 'hello',
   data () {
     return {
-      data: []
+      data: [],
+      contentScroll: {}
     }
   },
   created () {
@@ -76,7 +78,14 @@ export default {
             description: '首页',
             id: -1,
             name: '首页'
-          })
+          });
+
+          this.$nextTick(() => {
+            this.contentScroll = new BScroll(this.$refs.contentWrapper, {
+              click: true
+            });
+            console.log(this.contentScroll)
+          });
         })
         .catch(error => {
           console.log(error);
