@@ -1,7 +1,7 @@
 <template>
- <div class="index">
+  <div class="index">
     <welcome></welcome>
-    <sideBar v-if="sideBarShow" v-on:hideSideBar="toggleSideBar"></sideBar>
+    <sideBar v-if="isShowSideBar" v-on:hideSideBar="toggleSideBar" :isShowSideBar='isShowSideBar'></sideBar>
     <mt-loadmore :top-method="loadTop" :topDistance="40" ref="loadmore">
       <header>
         <i class="iconfont icon-pos" @click="toggleSideBar">&#xe675;</i>
@@ -19,12 +19,15 @@ import welcome from '../components/Welcome'
 import swipe from '../components/Swipe'
 import sideBar from '../components/SideBar'
 import newsList from '../components/NewsList'
+
 export default {
   data () {
     return {
-       msg: 'Welcome to Your Vue.js App',
-       sideBarShow: false
+       isShowSideBar: false
      }
+  },
+  created () {
+    this.isShowSideBar = false;
   },
   components: {
     'welcome': welcome,
@@ -34,7 +37,7 @@ export default {
   },
   methods: {
     toggleSideBar: function() {
-      this.sideBarShow = !this.sideBarShow;
+      this.isShowSideBar = !this.isShowSideBar;
     },
     loadTop() {
       this.$refs.newsList.$emit('refresh');

@@ -1,49 +1,50 @@
 <template>
-  <div class="side-bar">
-    <div class="user-menu">
-      <img class="user-img" src="../assets/logo.png">
-      <span class="user-name">Lulin</span>
-    </div>
+  <div class="wrap" :class="[isShowSideBar ? 'show' : '']">
+    <div class="side-bar">
+      <div class="user-menu">
+        <img class="user-img" src="../assets/logo.png">
+        <span class="user-name">Lulin</span>
+      </div>
 
-    <div class="menu-bar">
-      <div class="menu-collect">
-        <i class="iconfont icon-pos">&#xe60b;</i>
-        <br/>
-        <span>收藏</span>
+      <div class="menu-bar">
+        <div class="menu-collect">
+          <i class="iconfont icon-pos">&#xe60b;</i>
+          <br/>
+          <span>收藏</span>
+        </div>
+        <div class="menu-message">
+          <i class="iconfont icon-pos">&#xe60a;</i>
+          <br/>
+          <span>消息</span>
+        </div>
+        <div class="menu-setting">
+          <i class="iconfont icon-pos">&#xe69d;</i>
+          <br/>
+          <span>设置</span>
+        </div>
       </div>
-      <div class="menu-message">
-        <i class="iconfont icon-pos">&#xe60a;</i>
-        <br/>
-        <span>消息</span>
+
+      <div class="content-wrapper" ref="contentWrapper">
+        <ul class="content-list">
+          <li class="content-item" v-for="item in data" @click="gotoThemeDetail(item.id)">
+            <i class="iconfont icon-pos" v-if="item.id === -1">&#xe66f;</i>
+            {{item.name}}
+            <i class="iconfont icon-pos right">&#xe60c;</i>
+          </li>
+        </ul>
       </div>
-      <div class="menu-setting">
-        <i class="iconfont icon-pos">&#xe69d;</i>
-        <br/>
-        <span>设置</span>
+
+      <div class="foot-bar">
+        <div class="off-line">
+          <i class="iconfont icon-pos">&#xe982;</i>
+          <span class="off-line-txt">离线</span>
+        </div>
+        <div class="night-mode">
+          <i class="iconfont icon-pos">&#xe610;</i>
+          <span class="night-mode-txt">夜间</span>
+        </div>
       </div>
     </div>
-
-    <div class="content-wrapper" ref="contentWrapper">
-      <ul class="content-list">
-        <li class="content-item" v-for="item in data">
-          <i class="iconfont icon-pos" v-if="item.id === -1">&#xe66f;</i>
-          {{item.name}}
-          <i class="iconfont icon-pos right">&#xe60c;</i>
-        </li>
-      </ul>
-    </div>
-
-    <div class="foot-bar">
-      <div class="off-line">
-        <i class="iconfont icon-pos">&#xe982;</i>
-        <span class="off-line-txt">离线</span>
-      </div>
-      <div class="night-mode">
-        <i class="iconfont icon-pos">&#xe610;</i>
-        <span class="night-mode-txt">夜间</span>
-      </div>
-    </div>
-
     <div class="mask" @click="hideSideBar"></div>
   </div>
 </template>
@@ -54,7 +55,11 @@ import router from "../router";
 import BScroll from "better-scroll";
 
 export default {
-  name: 'hello',
+  props: {
+    isShowSideBar: {
+      type: Boolean
+    }
+  },
   data () {
     return {
       data: [],
@@ -90,6 +95,13 @@ export default {
         .catch(error => {
           console.log(error);
         })
+    },
+    gotoThemeDetail: function(id) {
+      if (id === -1) {
+        this.hideSideBar();
+      } else {
+        router.push({ name: 'themeDetail', params: { id: id } });
+      }
     }
   }
 }
@@ -113,6 +125,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+.show {
+  display: block;
 }
 
 .icon-pos {
