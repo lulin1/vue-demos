@@ -8,7 +8,7 @@
       <i class="iconfont icon-pos fold" v-if="!this.jia" @click="toggleJia">&#xe628;</i>
     </div>
 
-    <div class="editor">
+    <div class="editor" @click="goEditorList">
       <span class="editor-txt">主编</span>
       <img class="editor-img" v-for="item in data.editors" v-lazy="attachImgUrl(item.avatar)">
     </div>
@@ -57,6 +57,9 @@ export default {
     },
     toggleJia: function () {
       this.jia = !this.jia;
+    },
+    goEditorList: function () {
+      router.push( { name: 'editorList', params: this.id });
     }
   }
 }
@@ -76,7 +79,6 @@ ul {
 
 li {
   display: inline-block;
-  margin: 0 10px;
 }
 
 a {

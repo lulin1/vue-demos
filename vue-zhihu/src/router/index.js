@@ -5,6 +5,7 @@ import newsDetail from '../pages/newsDetail'
 import comment from '../pages/Comment'
 import writeComment from '../pages/writeComment'
 import themeDetail from '../pages/themeDetail'
+import editorList from '../pages/editorList'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/themeDetail/:id',
       name: 'themeDetail',
       component: themeDetail
+    },
+    {
+      path: '/editorList/:id',
+      name: 'editorList',
+      component: editorList
     }
   ]
 })
