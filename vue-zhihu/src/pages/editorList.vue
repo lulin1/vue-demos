@@ -88,7 +88,7 @@ header {
   width: 100%;
   height: 100px;
   position: relative;
-  font-size: 30px;
+  font-size: 35px;
   margin-bottom: 20px;
   border-bottom: 3px solid #eee;
 }
@@ -105,14 +105,13 @@ header {
 
 .editor-item-name {
   position: absolute;
-  top: 5px;
-  left: 160px;
+  left: 170px;
 }
 
 .editor-item-bio {
   position: absolute;
-  bottom: 5px;
-  left: 160px;
+  bottom: 10px;
+  left: 170px;
   color: #b0b0b0;
   font-size: 28px;
 }
