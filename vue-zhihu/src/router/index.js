@@ -6,6 +6,7 @@ import comment from '../pages/Comment'
 import writeComment from '../pages/writeComment'
 import themeDetail from '../pages/themeDetail'
 import editorList from '../pages/editorList'
+import editor from '../pages/editor'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/editorList/:id',
       name: 'editorList',
       component: editorList
+    },
+    {
+      path: '/editor/:editorId/:editorName',
+      name: 'editor',
+      component: editor
     }
   ]
 })

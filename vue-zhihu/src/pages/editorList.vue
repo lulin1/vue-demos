@@ -5,7 +5,7 @@
       <span class="editor">主编</span>
     </header>
     <ul>
-      <li class="editor-item" v-for="item in data">
+      <li class="editor-item" v-for="item in data" @click="goEditorHomePage(item.id, item.name)">
         <img class="editor-item-img" v-lazy="attachImgUrl(item.avatar)">
         <span class="editor-item-name">{{item.name}}</span>
         <span class="editor-item-bio">{{item.bio}}</span>
@@ -45,6 +45,9 @@ export default {
       if (srlUrl !== undefined) {
         return srlUrl.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p');
       }
+    },
+    goEditorHomePage: function (id,name) {
+      router.push({ name: 'editor', params: { editorId: id, editorName: name } });
     }
   }
 }
