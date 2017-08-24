@@ -145,20 +145,21 @@ a {
   height: 160px;
   color: #000;
   text-align: left;
-  padding: 10px 30px;
+  padding: 10px 0;
   border-bottom: 3px solid #eee;
 }
 
 .content-item-title {
   display: inline-block;
   width: 70%;
+  margin-left: 30px;
 }
 
 .content-item-img {
-  width: 170px;
-  height: 150px;
+  width: 150px;
+  height: 140px;
   float: right;
-  margin-top: 5px;
-  margin-right: 80px;
+  margin-top: 10px;
+  margin-right: 60px;
 }
 </style>
