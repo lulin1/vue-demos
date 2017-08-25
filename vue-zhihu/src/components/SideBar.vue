@@ -7,7 +7,7 @@
       </div>
 
       <div class="menu-bar">
-        <div class="menu-collect">
+        <div class="menu-collect" @click="gotoCollectDetail">
           <i class="iconfont icon-pos">&#xe60b;</i>
           <br/>
           <span>收藏</span>
@@ -96,12 +96,15 @@ export default {
           console.log(error);
         })
     },
-    gotoThemeDetail: function(id) {
+    gotoThemeDetail: function (id) {
       if (id === -1) {
         this.hideSideBar();
       } else {
         router.push({ name: 'themeDetail', params: { id: id } });
       }
+    },
+    gotoCollectDetail: function () {
+      router.push({ name: 'collect' });
     }
   }
 }

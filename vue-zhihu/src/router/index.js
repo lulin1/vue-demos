@@ -7,6 +7,7 @@ import writeComment from '../pages/writeComment'
 import themeDetail from '../pages/themeDetail'
 import editorList from '../pages/editorList'
 import editor from '../pages/editor'
+import collect from '../pages/collect'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/editor/:editorId/:editorName',
       name: 'editor',
       component: editor
+    },
+    {
+      path: '/collect',
+      name: 'collect',
+      component: collect
     }
   ]
 })
