@@ -52,7 +52,7 @@
 <script>
 import axios from "axios";
 import router from "../router";
-import BScroll from "better-scroll";
+// import BScroll from "better-scroll";
 
 export default {
   props: {
@@ -85,12 +85,12 @@ export default {
             name: '首页'
           });
 
-          this.$nextTick(() => {
-            this.contentScroll = new BScroll(this.$refs.contentWrapper, {
-              click: true
-            });
-            console.log(this.contentScroll)
-          });
+          // this.$nextTick(() => {
+          //   this.contentScroll = new BScroll(this.$refs.contentWrapper, {
+          //     click: true
+          //   });
+          //   console.log(this.contentScroll)
+          // });
         })
         .catch(error => {
           console.log(error);
