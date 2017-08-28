@@ -6,7 +6,10 @@
     <ul class="story-list">
       <li class="story-item" v-for="item in this.$store.state.collectStories" :key="item.id" >
         <span class="story-item-title">{{item.title}}</span>
-        <img class="story-item-img" v-lazy="attachImgUrl(item.images[0])">
+        <div class="img-wrapper">
+          <img class="story-item-img" v-lazy="attachImgUrl(item.images[0])">
+          <i class="iconfont icon-mult-pic">&#xe63a; 多图</i>
+        </div>
       </li>
     </ul>
   </div>
@@ -35,19 +38,10 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-.mint-header {
-  height: 100px !important;
-  font-size: 35px !important;
-}
-
-.mintui {
-  font-size: 35px !important;
-}
-
+<style scoped>
 .story-list {
   margin-top: 100px;
-  padding: 15px;
+  padding: 0;
   font-size: 35px;
   list-style-type: none;
   text-align: left;
@@ -57,6 +51,9 @@ export default {
   overflow: hidden;
   margin-bottom: 20px;
   border-bottom: 2px solid #eee;
+  height: 200px;
+  display: flex;
+  align-items: center;
 }
 
 .story-item-title {
@@ -65,11 +62,24 @@ export default {
   margin-left: 20px;
 }
 
+.img-wrapper {
+  position: relative;
+  width: 25%;
+  display: inline-block;
+}
+
 .story-item-img {
   float: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  width: 20%;
   height: 150px;
 }
+
+.icon-mult-pic {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 30px;
+  background-color: black;
+  color: #fff;
+}
+
 </style>

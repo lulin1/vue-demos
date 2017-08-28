@@ -23,4 +23,13 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
+.mint-header {
+  height: 100px !important;
+  font-size: 35px !important;
+}
+
+.mintui {
+  font-size: 35px !important;
+}
 </style>
