@@ -8,7 +8,7 @@
         <span class="story-item-title">{{item.title}}</span>
         <div class="img-wrapper">
           <img class="story-item-img" v-lazy="attachImgUrl(item.images[0])">
-          <i class="iconfont icon-mult-pic">&#xe63a; 多图</i>
+          <i class="iconfont icon-mult-pic" v-if="item.multipic">&#xe63a; 多图</i>
         </div>
       </li>
     </ul>

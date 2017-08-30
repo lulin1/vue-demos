@@ -6,6 +6,7 @@
           <span class="story-title">{{story.title}}</span>
           <!-- <img class="story-img" v-bind:src="attachImageUrl(story.images[0])" :alt="story.title" /> -->
           <img class="story-img" v-lazy="attachImageUrl(story.images[0])" :alt="story.title" />
+          <i class="iconfont icon-mult-pic" v-if="story.multipic">&#xe63a; 多图</i>
       </li>
     </ul>
   </div>
@@ -167,6 +168,7 @@ a {
   height: 200px;
   border-bottom: 3px solid #f5f5f5;
   text-align: left;
+  position: relative;
 }
 
 .story-title {
@@ -185,6 +187,16 @@ a {
   width: 20%;
   height: 150px;
   float: right;
+  margin-right: 20px;
+}
+
+.icon-mult-pic {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000;
+  font-size: 30px;
+  color: #fff;
 }
 
 </style>
