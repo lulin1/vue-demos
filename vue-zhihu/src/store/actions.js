@@ -21,5 +21,9 @@ export default {
 	},
 	judgeCollectStatus: ({ commit }) => {
 		commit(types.JUDGE_COLLECT_STATUS);
-	}
+	},
+	// 改变当前主题id
+    changeCurrentThemeId: ({ commit }, id) => {
+        commit(types.CHANGE_CURRENT_THEME_ID, id);
+    }
 }

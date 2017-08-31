@@ -75,7 +75,14 @@ export default {
     },
     goBack: function() {
         // window.history.go(-1);
-        router.push({ name: 'index'});
+        let type = this.$store.state.newsType;
+        if (type === 0) {
+          router.push({ name: 'index'});
+        } else if (type === 1) {
+          router.push({ name: 'themeDetail' , params: { id: this.$store.state.currentThemeId } });
+        } else if (type === 2) {
+          router.push({ name: 'collect'});
+        }
     },
 
     goNext: function() {

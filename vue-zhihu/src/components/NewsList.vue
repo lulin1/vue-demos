@@ -57,8 +57,8 @@ export default {
     },
 
     goto: function(id) {
-        this.$store.dispatch('changeNewsType',0);
-        this.$store.dispatch('changeCurrentNewsId',id);
+      this.$store.dispatch('changeNewsType', 0);
+      this.$store.dispatch('changeCurrentNewsId', id);
       router.push({ name: 'newsDetail',params:{ id : id } });
     },
 

@@ -100,6 +100,7 @@ export default {
       if (id === -1) {
         this.hideSideBar();
       } else {
+        this.$store.dispatch('changeCurrentThemeId', id)
         router.push({ name: 'themeDetail', params: { id: id } });
       }
     },

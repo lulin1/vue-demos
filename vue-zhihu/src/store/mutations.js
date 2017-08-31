@@ -47,5 +47,9 @@ export default {
 		} else {
 			state.isCollect = true;
 		}
+	},
+	// 改变当前主题id
+	[types.CHANGE_CURRENT_THEME_ID] (state, id) {
+	    state.currentThemeId = id;
 	}
 }

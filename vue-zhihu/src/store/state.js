@@ -11,5 +11,6 @@ export default {
   collectStories : [], // 收藏新闻数组
   comments: 0, // 评论总数
   longComment: 0, // 长评论总数
-  shortComment: 0 // 短评论总数
+  shortComment: 0, // 短评论总数
+  currentThemeId: -1 // 当前主题id
 }
