@@ -36,6 +36,8 @@ export default {
     },
     // 查询收藏的新闻详情
     goCollectDetail: function (id) {
+      this.$store.dispatch('changeCurrentNewsId', id);
+      this.$store.dispatch('changeNewsType', 2);
       router.push({ name: 'newsDetail', params: { id: id } })
     }
   }
