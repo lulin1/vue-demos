@@ -4,7 +4,7 @@
       <mt-button icon="back" slot="left" @click="back"></mt-button>
     </mt-header>
     <ul class="story-list">
-      <li class="story-item" v-for="item in this.$store.state.collectStories" :key="item.id" >
+      <li class="story-item" v-for="item in this.$store.state.collectStories" :key="item.id" @click="goCollectDetail(item.id)">
         <span class="story-item-title">{{item.title}}</span>
         <div class="img-wrapper">
           <img class="story-item-img" v-lazy="attachImgUrl(item.images[0])">
@@ -28,10 +28,15 @@ export default {
     back: function () {
       router.push({ name: 'index'});
     },
+    // 修改图片链接
     attachImgUrl: function (url) {
       if (url !== undefined) {
         return url.replace(/http\w{0,1}:\/\/p/g, 'https://images.weserv.nl/?url=p');
       }
+    },
+    // 查询收藏的新闻详情
+    goCollectDetail: function (id) {
+      router.push({ name: 'newsDetail', params: { id: id } })
     }
   }
 }
