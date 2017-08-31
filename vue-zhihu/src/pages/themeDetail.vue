@@ -14,7 +14,7 @@
     </div>
 
     <ul class="content-list">
-      <li class="content-item" v-for="story in data.stories">
+      <li class="content-item" v-for="story in data.stories" @click="goThemeDetail(story.id)">
         <span class="content-item-title">{{story.title}}</span>
         <img class="content-item-img" v-if="story.images !== undefined" v-lazy="attachImgUrl(story.images[0])">
       </li>
@@ -60,6 +60,11 @@ export default {
     },
     goEditorList: function () {
       router.push( { name: 'editorList', params: this.id });
+    },
+    goThemeDetail: function (id) {
+      this.$store.dispatch('changeCurrentNewsId', id);
+      this.$store.dispatch('changeNewsType', 1);
+      router.push( { name: 'newsDetail', params: { id: id } })
     }
   }
 }
