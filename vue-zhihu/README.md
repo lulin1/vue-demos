@@ -1,4 +1,4 @@
-# vue-zhihu
+## vue-zhihu
 
 > A Vue.js project 这是一个使用Vue全家桶开发的手机端知乎日报，页面样式主要参考iOS版知乎日报APP。
 
@@ -12,7 +12,7 @@
 
 ## 技术栈
 
-vue2.x + vue-cli + vue-router + vuex + axios + + mint-ui + moment.js + flex + es6
+> vue2.x + vue-cli + vue-router + vuex + axios + + mint-ui + moment.js + flex + es6
 
 ## Build Setup
 
