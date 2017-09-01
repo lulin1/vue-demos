@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+## 技术栈
+
+vue2.x + vue-cli + vue-router + vuex + axios + + mint-ui + moment.js + flex + es6
+
 ## Build Setup
 
 ``` bash
