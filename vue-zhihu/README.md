@@ -14,6 +14,10 @@
 
 > vue2.x + vue-cli + vue-router + vuex + axios + + mint-ui + moment.js + flex + es6
 
+## 功能
+- [x] 首页
+
+
 ## Build Setup
 
 ``` bash
