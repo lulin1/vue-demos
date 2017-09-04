@@ -38,4 +38,6 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-![index.gif](./screenshots/index.gif)
+## 项目截图
+### 首页
+![index.gif](./screen-shots/index.gif)
