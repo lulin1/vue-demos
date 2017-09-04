@@ -57,3 +57,21 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## 项目截图
 ### 首页
 ![index.gif](./screen-shots/index.gif)
+
+### 新闻详情页
+![newsDetail.gif](./screen-shots/newsDetail.gif)
+
+### 查看评论
+![commentDetail.gif](./screen-shots/commentDetail.gif)
+
+### 发表评论
+![commentPublish.gif](./screen-shots/commentPublish.gif)
+
+### 主题页
+![theme.gif](./screen-shots/theme.gif)
+
+### 编辑列表页
+![editor.gif](./screen-shots/editor.gif)
+
+### 收藏页
+![collect.gif](./screen-shots/collect.gif)
