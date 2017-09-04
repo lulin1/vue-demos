@@ -14,6 +14,22 @@
 
 > vue2.x + vue-cli + vue-router + vuex + axios + + mint-ui + moment.js + flex + es6
 
+## 功能
+- [x] 首页
+- [x] 启动欢迎页
+- [x] 首页展示新闻列表
+- [x] 首页新闻列表滚动到底部加载更多
+- [x] 点击新闻列表查看新闻详情
+- [x] 底部菜单（返回上一级页面、新闻详情页载入下一篇、点赞、分享、收藏新闻、评论）
+- [x] 查看评论
+- [x] 短评展开和收缩
+- [x] 编写评论页（不能发送到后台）
+- [x] 首页侧边栏
+- [x] 查看指定主题新闻
+- [x] 查看指定主题下的编辑列表
+- [x] 查看某个编辑的个人信息
+- [x] 查看收藏新闻
+
 ## Build Setup
 
 ``` bash
@@ -38,4 +54,6 @@ npm test
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-![index.gif](./screenshots/index.gif)
+## 项目截图
+### 首页
+![index.gif](./screen-shots/index.gif)
