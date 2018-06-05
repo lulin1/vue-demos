@@ -15,4 +15,4 @@
 ### 第三部分 
 > [vue-cli-dev-cross](https://github.com/lulinliao/vue-demos/tree/master/vue-cli-dev-cross)
 
-使用 vue-cli 的参数 proxyTable 来解决 开发环境 接口跨域的问题，效果图和具体操作步骤请点击上面一行链接进入该项目查看。
+使用 vue-cli 的参数 proxyTable 来解决 开发环境 接口跨域的问题，效果图和具体操作步骤请点击上面一行的项目名称进入该项目查看。
