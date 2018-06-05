@@ -10,3 +10,9 @@
 > [vue-zhihu](https://github.com/lulinliao/vue-demos/tree/master/vue-zhihu)
 
 使用 'vue全家桶'　实现的移动端知乎日报，同样使用　vue-cli　搭建项目，运行　npm run dev　看具体效果。
+
+
+### 第三部分 
+> [vue-cli-dev-cross](https://github.com/lulinliao/vue-demos/tree/master/vue-cli-dev-cross)
+
+使用 vue-cli 的参数 proxyTable 来解决 开发环境 接口跨域的问题，效果图和具体操作步骤请点击上面一行链接进入该项目查看。
