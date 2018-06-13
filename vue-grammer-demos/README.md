@@ -18,4 +18,14 @@ npm run build
 npm run build --report
 ```
 
+## Introduction
+
+This project consists of two parts： 
+
+[Transition Effect](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionEffect.vue)
+
+[Transition Status](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionStatus.vue)
+
+
+
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
