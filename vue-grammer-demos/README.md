@@ -29,6 +29,9 @@ This project consists of two parts：
 
 ## Display
 
+![2.png](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/assets/2.png)
+
+
 ![1.png](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/assets/1.png)
 
 
