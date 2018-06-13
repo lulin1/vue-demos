@@ -27,7 +27,9 @@ This project consists of two parts：
 2、[Transition Status](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionStatus.vue)
 
 
+## Display
 
+![1.png](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/assets/1.png)
 
 
 
