@@ -22,9 +22,12 @@ npm run build --report
 
 This project consists of two parts： 
 
-[Transition Effect](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionEffect.vue)
+1、[Transition Effect](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionEffect.vue)
 
-[Transition Status](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionStatus.vue)
+2、[Transition Status](https://github.com/lulin1/vue-demos/blob/master/vue-grammer-demos/src/components/TransitionStatus.vue)
+
+
+
 
 
 
