@@ -1,4 +1,4 @@
-# vue-demos 包括两部分：
+# vue-demos 包括三部分：
 
 ### 第一部分 
 > [vue-grammer-demos](https://github.com/lulinliao/vue-demos/tree/master/vue-grammer-demos)
